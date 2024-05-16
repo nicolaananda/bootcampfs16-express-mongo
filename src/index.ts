@@ -1,6 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import { Note } from "./models/note";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 mongoose
