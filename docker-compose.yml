@@ -7,12 +7,21 @@ services:
       - "8000:8000"
     depends_on:
       - mongodb
+
   mongodb:
     image: mongo
     ports:
       - "27017:27017"
     volumes:
-      - mongovolume:/data/db
+      - type: volume
+        source: mongovolume
+        target: /data/db
+      - type: volume
+        source: mongoconfig
+        target: /data/configdb
 
 volumes:
   mongovolume:
+    name: mongovolume
+  mongoconfig:
+    name: mongoconfig
